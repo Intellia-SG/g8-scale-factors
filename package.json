@@ -9,11 +9,7 @@
     "preview": "vite preview",
     "lint": "oxlint",
     "generate-audio": "node scripts/generate_audio.js",
-    "clean-audio": "node scripts/clean_audio.js",
-    "stress-test": "node scripts/stress_test.mjs",
-    "oracle": "node scripts/oracle.mjs",
-    "locale-audit": "node scripts/locale_audit.mjs",
-    "story-check": "node scripts/story_check.mjs"
+    "clean-audio": "node scripts/clean_audio.js"
   },
   "dependencies": {
     "framer-motion": "^12.42.0",
