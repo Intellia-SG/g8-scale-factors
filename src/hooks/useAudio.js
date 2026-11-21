@@ -4,6 +4,7 @@
 import { useRef, useCallback, useEffect } from 'react';
 import { audioMap } from '../utils/audioMap.js';
 import { AUDIO_CONFIG } from '../config/audio.config.js';
+import { speak as phoneticallyConvert } from '../utils/narration.js';
 
 const blobCache = new Map();
 
@@ -46,7 +47,7 @@ export function useAudio(audioEnabled = true) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          text,
+          text: phoneticallyConvert(text),
           model_id: AUDIO_CONFIG.model,
           voice_settings: settings,
         }),

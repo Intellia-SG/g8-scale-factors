@@ -3,6 +3,7 @@
 
 import { audioMap } from './audioMap.js';
 import { AUDIO_CONFIG } from '../config/audio.config.js';
+import { speak as phoneticallyConvert } from './narration.js';
 
 let _currentAudio = null;
 let _muted = false;
@@ -53,7 +54,7 @@ export async function getAudioUrl(text, style = 'statement') {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          text,
+          text: phoneticallyConvert(text),
           model_id: AUDIO_CONFIG.model,
           voice_settings: settings,
         }),

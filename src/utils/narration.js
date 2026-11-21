@@ -1,5 +1,6 @@
 // src/utils/narration.js
-// Narration script builder for ScaleQuest with phonetic spoken conversions
+// Narration script builder for ScaleQuest with phonetic spoken conversions and styled segments
+// Adheres strictly to audio_generation_pipeline (5).md (Parity, ElevenLabs Alice, Semantic Styles)
 
 export const say = (text) => ({ text, style: 'statement' });
 export const ask = (text) => ({ text, style: 'question' });
@@ -12,7 +13,7 @@ export const encourage = (text) => ({ text, style: 'encouragement' });
 export function speak(text) {
   if (!text) return '';
   let s = String(text);
-  // Spoken conversions per PRD §11 & TRD §11
+  // Spoken conversions per PRD §11, TRD §11 & audio pipeline specs
   s = s.replace(/×/g, 'times');
   s = s.replace(/÷/g, 'divided by');
   s = s.replace(/−/g, 'minus');
@@ -32,6 +33,12 @@ export function speak(text) {
   s = s.replace(/\bk = 3\b/g, 'the scale factor is three');
   s = s.replace(/\bk\b/g, 'scale factor');
   return s;
+}
+
+export function introNarration() {
+  return [
+    say("Welcome to ScaleQuest! Enter the Mini-Maker Studio to master scale factors, proportional scaling, and architectural models!"),
+  ];
 }
 
 export function wonderNarration() {
@@ -54,30 +61,33 @@ export function wonderMayaResultNarration() {
 
 export function storyNarration(panel) {
   const scripts = [
+    // Panel 0: The Poster Problem
     [
-      say("Welcome to the Mini-Maker Studio!"),
-      say("Jack wants to enlarge a four centimeter by three centimeter photo so its width becomes twelve centimeters."),
-      say("Since twelve is eight more than four, Jack adds eight centimeters to every side, making the poster twelve by eleven centimeters."),
-      think("Why does it look stretched? Maya measures: twelve divided by four is three, but eleven divided by three is not three!"),
-      emphasize("Adding the same number to every side distorts the shape!"),
+      say("Jack wants to enlarge a 4 cm × 3 cm photo for the makerspace exhibition so its width becomes 12 cm."),
+      say("Since 12 is 8 more than 4, he adds 8 cm to every side, making the poster 12 cm × 11 cm."),
+      think("But when Maya looks at it, the poster is visibly stretched! She measures the ratios: 12 ÷ 4 = 3, but 11 ÷ 3 is not 3."),
+      emphasize("Adding the same amount changed the proportions! Adding the same number to every side distorts the shape!"),
     ],
+    // Panel 1: The Magic Multiplier
     [
-      say("Maya explains the magic multiplier: scale factor k equals image divided by object!"),
-      say("Twelve divided by four equals three, so the scale factor is three!"),
-      say("Maya multiplies every single side by three: four times three is twelve, three times three is nine, and the five centimeter diagonal becomes fifteen!"),
-      cheer("The enlarged poster matches the photo perfectly without distortion!"),
+      say("Maya explains the golden rule: scaling means multiplying every side by the same scale factor k = image ÷ object."),
+      say("Since 12 ÷ 4 = 3, the scale factor k is 3!"),
+      say("She multiplies both sides: width 4 × 3 = 12 cm, and height 3 × 3 = 9 cm. Even the 5 cm diagonal multiplies by 3 to become 15 cm."),
+      cheer("The new poster matches the original photo perfectly without any distortion!"),
     ],
+    // Panel 2: Shrinking Back
     [
-      say("Now the studio prints a badge by shrinking the poster back down."),
-      say("Maya shows that when a scale factor is less than one, the shape reduces in size."),
-      say("Going back from twelve by nine to four by three uses scale factor four divided by twelve, which is one third!"),
-      cheer("Back from times three is times one third! The reverse factor is always one over k!"),
+      say("Next, the studio creates a pocket badge from the large exhibition poster."),
+      say("Maya shows that when a scale factor is less than 1, the shape reduces in size."),
+      say("Going from the 12 cm × 9 cm poster back to the 4 cm × 3 cm photo uses k = 4 ÷ 12 = 1/3. So 12 × 1/3 = 4 cm and 9 × 1/3 = 3 cm."),
+      cheer("Back from times 3 is times 1/3 — the reverse scale factor is always 1/k!"),
     ],
+    // Panel 3: The Model Lighthouse
     [
-      say("Atlas presents the centerpiece: a twenty-four centimeter model lighthouse built at scale one to fifty."),
-      say("Maya and Jack follow the four steps: Match, Factor, Use, and Check."),
-      say("Scale one to fifty means scale factor fifty. Twenty-four centimeters times fifty equals twelve hundred centimeters, which is twelve meters!"),
-      cheer("A twelve-meter lighthouse is perfectly sensible!"),
+      say("Atlas introduces the studio's open-day centerpiece: a 24 cm model lighthouse built at a scale of 1 : 50."),
+      say("Maya and Jack solve for the real lighthouse height using the standard four-step order: Match, Factor, Use, and Check."),
+      say("Scale 1 : 50 means scale factor 50. 24 cm × 50 = 1200 cm, which equals 12 meters!"),
+      cheer("A 12-meter lighthouse is perfectly realistic!"),
     ],
   ];
 
