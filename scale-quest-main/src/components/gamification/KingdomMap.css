@@ -1,0 +1,235 @@
+/* src/components/gamification/KingdomMap.css */
+/* World map styling matching PRD §8.4 & TRD §7.3 */
+
+.play-map-card {
+  width: 100%;
+  max-width: 950px;
+  padding: 24px 25px;
+  border-radius: 22px;
+  background: #131432;
+  border: 1px solid #262745;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.play-map-card::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65px;
+  height: 3px;
+  border-radius: 999px;
+  background: #08bd88;
+}
+
+.play-map-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.play-map-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #1fda96;
+  margin: 0;
+}
+
+.play-map-sub {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #a4a8c5;
+  margin-top: 4px;
+}
+
+.play-star-pill {
+  background: #0c0d21;
+  color: #eeefff;
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.world-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px 13px;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.world-card {
+  height: 134px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: #181736;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.world-card:hover:not(.locked) {
+  transform: translateY(-2px);
+  border-color: #1fda96;
+}
+
+.world-card.current {
+  border: 1.5px solid #1fda96;
+  background: #101532;
+  box-shadow: 0 0 16px rgba(31, 218, 150, 0.25);
+}
+
+.world-card.locked {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.world-card-top {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.world-badge {
+  background: #201f3e;
+  color: #edeeff;
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.world-q-range {
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #3bb0e8;
+}
+
+.world-q-range.current-range {
+  color: #1fda96;
+}
+
+.world-icon {
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.world-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.88rem;
+  color: #d3d0ed;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.world-status {
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.play-status {
+  color: #18cb89;
+  font-weight: 900;
+}
+
+.ready-status {
+  color: #a4a8c5;
+}
+
+.locked-status {
+  color: #6c6f93;
+}
+
+.world-score-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.score-text {
+  font-size: 0.76rem;
+  color: #86efac;
+}
+
+.replay-btn {
+  background: rgba(239, 83, 80, 0.25);
+  border: 1px solid #ef5350;
+  color: #fca5a5;
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.world-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 17px;
+  flex-wrap: wrap;
+}
+
+.boss-btn {
+  background: #22223e;
+  border: 1.5px solid rgba(255, 193, 7, 0.5);
+  color: #f3c563;
+  font-size: 0.85rem;
+  padding: 8px 18px;
+}
+
+.boss-btn:hover {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffe082;
+}
+
+.reflect-btn {
+  background: #22223e;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  color: #a8aec8;
+  font-size: 0.85rem;
+  padding: 8px 18px;
+}
+
+.reflect-btn:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .world-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .world-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .play-map-card {
+    padding: 18px 14px;
+  }
+}

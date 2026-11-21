@@ -232,5 +232,4 @@ body {
   to { opacity: 1; transform: scale(1); }
 }
 
-/* IMPORT OVERRIDES LAST so they win cascades */
-@import './scalequest-overrides.css';
+

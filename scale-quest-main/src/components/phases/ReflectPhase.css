@@ -1,0 +1,309 @@
+/* src/components/phases/ReflectPhase.css */
+
+.reflect-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.reflect-card {
+  width: 100%;
+  max-width: 640px;
+  background: rgba(18, 18, 54, 0.92);
+  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-xl, 24px);
+  padding: 24px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reflect-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.reflect-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #00e5ff;
+  background: rgba(0, 229, 255, 0.12);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.reflect-title {
+  font-family: var(--font-heading, 'Fredoka', cursive);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.reflect-q-item {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.reflect-q-text {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #e2e8f0;
+}
+
+.reflect-shapes-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reflect-shape-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.reflect-shape-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.shape-label-main {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.shape-label-sub {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.reflect-shape-btn.opt-correct {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: #10b981;
+}
+
+.reflect-shape-btn.opt-correct .shape-label-main {
+  color: #34d399;
+}
+
+.reflect-shape-btn.opt-wrong {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
+}
+
+.reflect-shape-btn.opt-wrong .shape-label-main {
+  color: #f87171;
+}
+
+.quick-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.quick-chip-btn {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  color: #cbd5e1;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.quick-chip-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #00e5ff;
+  color: #ffffff;
+}
+
+.reflect-journal {
+  width: 100%;
+  background: rgba(10, 10, 30, 0.6);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  padding: 12px 14px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+  min-height: 90px;
+  outline: none;
+}
+
+.reflect-journal:focus {
+  border-color: #7c4dff;
+  box-shadow: 0 0 0 3px rgba(124, 77, 255, 0.25);
+}
+
+.reflect-actions-sticky {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── STEP 3: SCORECARD ── */
+.trophy-card {
+  width: 100%;
+  max-width: 580px;
+  background: rgba(18, 18, 54, 0.95);
+  border: 2px solid rgba(255, 215, 0, 0.35);
+  border-radius: var(--radius-xl, 24px);
+  padding: 32px 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+}
+
+.trophy-icon {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.trophy-title {
+  font-family: var(--font-heading, 'Fredoka', cursive);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0;
+}
+
+.trophy-sub {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.trophy-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.trophy-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 12px 8px;
+}
+
+.stat-value {
+  font-family: var(--font-heading, 'Fredoka', cursive);
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #00e5ff;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.trophy-star-line {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffd700;
+  background: rgba(255, 215, 0, 0.1);
+  padding: 6px 16px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.trophy-badges-accordion {
+  width: 100%;
+  margin-top: 6px;
+}
+
+.badges-accordion-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.badges-accordion-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.badge-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+  max-height: 180px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.badge-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 12px;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.badge-desc {
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+
+.trophy-actions {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.trophy-cta {
+  min-width: 150px;
+}

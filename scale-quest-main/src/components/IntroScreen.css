@@ -1,0 +1,272 @@
+/* src/components/IntroScreen.css */
+/* Home screen styles matching PRD §8.0 and TRD §6 */
+
+.intro-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px 40px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+  background: radial-gradient(ellipse at 50% 40%, #1b1143 0%, #09051c 100%);
+}
+
+.intro-top-badge {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  padding: 6px 20px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.intro-title {
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.05;
+  margin: 0;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+.text-orange { color: #ff9f43; }
+.text-white  { color: #ffffff; }
+
+.intro-subtitle {
+  color: #feca57;
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-weight: 800;
+  margin-top: 4px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+/* Mascot + Bubble */
+.intro-mascot-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  max-width: 900px;
+}
+
+.intro-mascot-circle {
+  width: 58px;
+  height: 58px;
+  background: radial-gradient(circle, #ffd54f 0%, #ff9f43 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  border: 2.5px solid rgba(255, 255, 255, 0.35);
+  flex-shrink: 0;
+}
+
+.intro-speech-bubble {
+  background: #ffffff;
+  color: #2b2b2b;
+  padding: 12px 24px;
+  border-radius: 20px;
+  font-weight: 800;
+  position: relative;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+}
+
+.intro-speech-bubble::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 8px 10px 8px 0;
+  border-style: solid;
+  border-color: transparent #ffffff transparent transparent;
+}
+
+.intro-speech-bubble .hl {
+  color: #f59e0b;
+}
+
+/* Journey Card (Single 5-phase row) */
+.journey-card {
+  max-width: 860px;
+  width: 100%;
+  padding: 16px 26px;
+  border-radius: 20px;
+  background: rgba(30, 30, 65, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.journey-card-title {
+  color: #feca57;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.journey-steps-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0;
+}
+
+.journey-step-item {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 6px 4px;
+  border-radius: 12px;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.journey-step-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.journey-icon-circle {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.journey-text-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.journey-item-title {
+  white-space: nowrap;
+  font-size: clamp(0.72rem, 1.1vw, 1.05rem);
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.journey-item-desc {
+  font-size: clamp(0.66rem, 0.9vw, 0.8rem);
+  color: #a4b0be;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.25;
+}
+
+.journey-arrow {
+  flex: 0 0 auto;
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 1.25rem;
+  margin: 0 4px;
+  user-select: none;
+}
+
+/* Actions */
+.intro-ctas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.intro-cta-main {
+  border-radius: 18px;
+  padding: 16px 44px;
+  font-size: 1.2rem;
+  background: linear-gradient(180deg, #fbb03b, #f59e0b);
+  color: #18181b;
+  font-weight: 800;
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+
+.intro-cta-main:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.55);
+}
+
+/* Info Chips */
+.intro-bottom-cards {
+  display: flex;
+  gap: 13px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.bottom-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 9px 16px;
+  background: rgba(30, 30, 60, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #d1d8e0;
+  font-weight: 800;
+  font-size: 0.92rem;
+}
+
+.bottom-card-icon {
+  font-size: 1.15rem;
+}
+
+/* S1 Responsive rule: mobile phone displays icon above name, descriptors hidden */
+@media (max-width: 640px) {
+  .journey-card {
+    padding: 12px 10px;
+  }
+  .journey-step-item {
+    flex-direction: column;
+    gap: 4px;
+    padding: 4px 2px;
+  }
+  .journey-item-desc {
+    display: none;
+  }
+  .journey-arrow {
+    display: none;
+  }
+  .journey-item-title {
+    font-size: clamp(10.5px, 3.2vw, 15px);
+  }
+  .journey-icon-circle {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .intro-wrap {
+    padding: 16px 10px 30px;
+  }
+  .journey-card {
+    padding: 8px 4px;
+  }
+}
